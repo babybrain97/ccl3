@@ -6,8 +6,11 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.29347826086956524" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.29347826086956524" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.2570621468926554" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3342368613793089" />
+        <entry key="app/src/main/res/layout/fragment_new_task.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_newlist.xml" value="0.2976190476190476" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.29347826086956524" />
+        <entry key="app/src/main/res/layout/fragment_todolist.xml" value="0.3807291666666667" />
         <entry key="app/src/main/res/layout/list_item_view.xml" value="0.27760416666666665" />
         <entry key="app/src/main/res/layout/todolist_item_view.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.37395833333333334" />
@@ -19,5 +22,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>

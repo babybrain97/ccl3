@@ -3,26 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/HomeFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/HomeFragment"
         android:name="com.example.ccl3.HomeFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_home">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_HomeFragment_to_TodolistFragment"
+            app:destination="@id/TodolistFragment" />
+
+        <action
+            android:id="@+id/action_HomeFragment_to_NewlistFragment"
+            app:destination="@id/NewlistFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/TodolistFragment"
         android:name="com.example.ccl3.TodolistFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_todolist">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_TodolistFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+        <action
+            android:id="@+id/action_TodolistFragment_to_NewTaskFragment"
+            app:destination="@id/NewTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/NewlistFragment"
+        android:name="com.example.ccl3.NewListFragment"
+        android:label="New To Do List"
+        tools:layout="@layout/fragment_newlist">
+
+        <action
+            android:id="@+id/action_NewlistFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/NewTaskFragment"
+        android:name="com.example.ccl3.NewTaskFragment"
+        android:label="New Task"
+        tools:layout="@layout/fragment_new_task">
+
+        <action
+            android:id="@+id/action_NewTaskFragment_to_TodolistFragment"
+            app:destination="@id/TodolistFragment" />
     </fragment>
 </navigation>
