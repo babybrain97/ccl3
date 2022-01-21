@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.viewpager2.widget.ViewPager2
 import com.example.ccl3.databinding.FragmentTodolistBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -25,6 +27,16 @@ class TodolistFragment : Fragment() {
     ): View? {
 
         _binding = FragmentTodolistBinding.inflate(inflater, container, false)
+
+        binding.viewPager2.adapter = ViewTabAdapter(parentFragmentManager,lifecycle)
+
+        TabLayoutMediator(binding.tabLayout, binding.viewPager2){tab,position ->
+            when(position){
+                0->{tab.text="Tasks"}
+                1->{tab.text="Insights"}
+            }
+        }.attach()
+
         return binding.root
 
     }
@@ -32,9 +44,7 @@ class TodolistFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_TodolistFragment_to_HomeFragment)
-        }
+
         binding.fab.setOnClickListener{
             findNavController().navigate(R.id.action_TodolistFragment_to_NewTaskFragment)
         }

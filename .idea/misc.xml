@@ -7,12 +7,15 @@
         <entry key="app/src/main/res/layout/content_main.xml" value="0.29347826086956524" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.2570621468926554" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3342368613793089" />
-        <entry key="app/src/main/res/layout/fragment_new_task.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/fragment_newlist.xml" value="0.2976190476190476" />
+        <entry key="app/src/main/res/layout/fragment_new_task.xml" value="0.2914903102150198" />
+        <entry key="app/src/main/res/layout/fragment_newlist.xml" value="0.28378378378378377" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.29347826086956524" />
-        <entry key="app/src/main/res/layout/fragment_todolist.xml" value="0.3807291666666667" />
+        <entry key="app/src/main/res/layout/fragment_tab_insight.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/fragment_tab_task.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_todolist.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_view_tab.xml" value="0.1140625" />
         <entry key="app/src/main/res/layout/list_item_view.xml" value="0.27760416666666665" />
-        <entry key="app/src/main/res/layout/todolist_item_view.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/todolist_item_view.xml" value="0.25" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.37395833333333334" />
       </map>
     </option>
