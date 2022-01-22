@@ -41,15 +41,29 @@
         <action
             android:id="@+id/action_NewlistFragment_to_HomeFragment"
             app:destination="@id/HomeFragment" />
+        <action
+            android:id="@+id/action_NewlistFragment_to_SetIntentionFragment"
+            app:destination="@id/SetIntentionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SetIntentionFragment"
+        android:name="com.example.ccl3.SetIntentionFragment"
+        android:label="New Task"
+        tools:layout="@layout/fragment_set_intention">
+
+        <action
+            android:id="@+id/action_SetIntentionFragment_to_NewListFragment"
+            app:destination="@id/NewlistFragment" />
     </fragment>
     <fragment
         android:id="@+id/NewTaskFragment"
         android:name="com.example.ccl3.NewTaskFragment"
-        android:label="New Task"
+        android:label="Set Intention"
         tools:layout="@layout/fragment_new_task">
 
         <action
             android:id="@+id/action_NewTaskFragment_to_TodolistFragment"
             app:destination="@id/TodolistFragment" />
     </fragment>
+
 </navigation>

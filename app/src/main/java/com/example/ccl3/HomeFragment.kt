@@ -14,9 +14,6 @@ import com.example.ccl3.databinding.FragmentHomeBinding
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -25,7 +22,6 @@ class HomeFragment : Fragment() {
     ): View? {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val task1 = TodolistItem("hello")
         binding.recyclerview.adapter = TodolistAdapter()
         return binding.root
 
@@ -40,6 +36,7 @@ class HomeFragment : Fragment() {
         binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_HomeFragment_to_NewlistFragment)
         }
+        binding.textviewDate.text = getDate()
     }
 
     override fun onDestroyView() {
