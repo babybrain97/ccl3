@@ -18,7 +18,7 @@ class NewListFragment : Fragment(R.layout.fragment_newlist) {
 
     private lateinit var name: EditText
     private lateinit var reward: EditText
-   // private lateinit var btnSave: Button
+
 
     private lateinit var sqliteHelper: SQLiteHelper
 
@@ -47,7 +47,6 @@ class NewListFragment : Fragment(R.layout.fragment_newlist) {
            val reward = binding.rewardField.editText.toString()
 
         if (name.isEmpty() || reward.isEmpty()) {
-
 
             Toast.makeText(context, "Please enter ", Toast.LENGTH_SHORT).show()
 
