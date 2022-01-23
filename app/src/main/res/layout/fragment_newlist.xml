@@ -9,6 +9,7 @@
     tools:context=".NewListFragment">
 
     <com.google.android.material.textfield.TextInputLayout
+
         android:id="@+id/textField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +19,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:id="@+id/list_title"
+            android:text=""/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -31,8 +34,10 @@
         android:hint="Reward">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/reward_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text=""/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
