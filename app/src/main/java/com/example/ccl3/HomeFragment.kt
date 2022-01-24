@@ -50,10 +50,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun getItemsList(container: ViewGroup
-    ?): ArrayList<TodolistItem>{
+    ?): ArrayList<TodolistsModelDB>{
         val containerContext = container?.context
         val sqliteHelper: SQLiteHelper = SQLiteHelper(containerContext!!)
-        val empList: ArrayList<TodolistItem> = sqliteHelper.getAllList()
+        val empList: ArrayList<TodolistsModelDB> = sqliteHelper.getAllList()
 
         return empList
     }

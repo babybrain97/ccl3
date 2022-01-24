@@ -35,7 +35,7 @@ class SQLiteHelper(context: Context) :
         onCreate(db)
     }
 
-    fun insertList(std: TodolistItem): Long {
+    fun insertList(std: TodolistsModelDB): Long {
         val db = this.writableDatabase
 
         val contentValues = ContentValues()
@@ -52,8 +52,8 @@ class SQLiteHelper(context: Context) :
     }
 
     @SuppressLint("Range")
-    fun getAllList(): ArrayList<TodolistItem>{
-        val stdList: ArrayList<TodolistItem> = ArrayList()
+    fun getAllList(): ArrayList<TodolistsModelDB>{
+        val stdList: ArrayList<TodolistsModelDB> = ArrayList()
         val selectQuery = "SELECT * FROM $TBL_LIST"
         val db = this.readableDatabase
 
@@ -81,7 +81,7 @@ class SQLiteHelper(context: Context) :
              //  dateTo= cursor.getInt(cursor.getColumnIndex("date_to"))
                reward= cursor.getString(cursor.getColumnIndex("reward"))
 
-                val std = TodolistItem(id=id, name= name, reward= reward)
+                val std = TodolistsModelDB(id=id, name= name, reward= reward)
                 stdList.add(std)
 
             } while (cursor.moveToNext())

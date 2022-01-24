@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -18,10 +17,6 @@ import java.util.*
 
 
 class NewListFragment : Fragment(R.layout.fragment_newlist) {
-
-    private lateinit var name: EditText
-    private lateinit var reward: EditText
-
 
     private lateinit var sqliteHelper: SQLiteHelper
     private lateinit var binding: FragmentNewlistBinding
@@ -47,7 +42,7 @@ class NewListFragment : Fragment(R.layout.fragment_newlist) {
             Toast.makeText(context, "Please enter ", Toast.LENGTH_SHORT).show()
 
         }else{
-            val std = TodolistItem(name = name, reward = reward)
+            val std = TodolistsModelDB(name = name, reward = reward)
             val status = sqliteHelper.insertList(std)
 
             //Check insert success or not success
@@ -65,7 +60,6 @@ class NewListFragment : Fragment(R.layout.fragment_newlist) {
 
     private fun clearEditText(){
         var str=""
-//        binding.listTitle.text = str.toEditable()
         binding.textField.editText?.text = str.toEditable()
         binding.rewardField.editText?.text = str.toEditable()
         binding.textField.requestFocus()

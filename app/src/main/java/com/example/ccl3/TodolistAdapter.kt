@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ccl3.databinding.TodolistItemViewBinding
 
 
-class TodolistAdapter(val context: HomeFragment, val items: List<TodolistItem>) : RecyclerView.Adapter<TodolistAdapter.ViewHolder>() {
+class TodolistAdapter(val context: HomeFragment, val items: List<TodolistsModelDB>) : RecyclerView.Adapter<TodolistAdapter.ViewHolder>() {
 //class TodolistAdapter: RecyclerView.Adapter<TodolistAdapter.ViewHolder>() {
 
 //    private var listsList: Array<TodolistItem> = ArrayList()

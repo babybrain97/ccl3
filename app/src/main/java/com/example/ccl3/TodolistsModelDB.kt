@@ -2,8 +2,7 @@ package com.example.ccl3
 
 import java.util.*
 
-//data class TodolistItem(val text: String)
-class TodolistItem(
+class TodolistsModelDB(
     val id: Int = getAutoId(),
     val name: String,
     // var dateFrom: String = "",
