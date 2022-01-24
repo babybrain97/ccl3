@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ccl3.databinding.TodolistItemViewBinding
-
+/**
 class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>(){
     private var stdList: ArrayList<ListModelDb> = ArrayList()
 
@@ -20,7 +20,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>(){
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val std = stdList[position]
-        holder.bindView(std)
+        //holder.bindView(std)
     }
 
     override fun getItemCount(): Int {
@@ -29,8 +29,9 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>(){
 
    // inner class ViewHolder(val binding: TodolistItemViewBinding) : RecyclerView.ViewHolder(binding.root)
 
-    class ListViewHolder(view: View) : RecyclerView.ViewHolder(view){
+   /** class ListViewHolder(view: View) : RecyclerView.ViewHolder(view){
         private var id = view.findViewById<TextView>(R.id.)
     }
 
 }
+ */

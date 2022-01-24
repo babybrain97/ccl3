@@ -20,7 +20,7 @@ private lateinit var reward: EditText
 
 private lateinit var sqLiteHelper: SQLiteHelper
 private lateinit var recyclerView: RecyclerView
-private var adapter: ListAdapter? = null
+//private var adapter: ListAdapter? = null
 
 private lateinit var binding: FragmentNewlistBinding
 
@@ -39,7 +39,7 @@ class HomeFragment : Fragment(R.layout.fragment_newlist) {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val containerContext = container?.context
-        sqliteHelper = SQLiteHelper(containerContext!!)
+
         val task1 = TodolistItem("hello")
         binding.recyclerview.adapter = TodolistAdapter()
         return binding.root
@@ -62,13 +62,13 @@ class HomeFragment : Fragment(R.layout.fragment_newlist) {
         _binding = null
     }
     private fun initView(){
-        binding.textField
-        binding.rewardField
+       // binding.textField
+      //  binding.rewardField
 
     }
 
     private fun initRecyclerView(){
-        binding.recyclerview.layoutManager = LinearLayoutManager(containerContext!!)
+      //  binding.recyclerview.layoutManager = LinearLayoutManager(containerContext!!)
     }
 
 }
