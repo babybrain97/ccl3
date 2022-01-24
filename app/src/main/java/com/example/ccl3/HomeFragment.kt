@@ -7,29 +7,23 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.ccl3.databinding.FragmentHomeBinding
-import com.example.ccl3.databinding.FragmentNewlistBinding
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
-private lateinit var name: EditText
-private lateinit var reward: EditText
+
 
 private lateinit var sqLiteHelper: SQLiteHelper
+<<<<<<< HEAD
 private lateinit var recyclerView: RecyclerView
 //private var adapter: ListAdapter? = null
+=======
+>>>>>>> master
 
-private lateinit var binding: FragmentNewlistBinding
+class HomeFragment : Fragment() {
 
-class HomeFragment : Fragment(R.layout.fragment_newlist) {
+    private lateinit var name: EditText
+    private lateinit var reward: EditText
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -38,10 +32,14 @@ class HomeFragment : Fragment(R.layout.fragment_newlist) {
     ): View? {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+<<<<<<< HEAD
         val containerContext = container?.context
 
         val task1 = TodolistItem("hello")
         binding.recyclerview.adapter = TodolistAdapter()
+=======
+        binding.recyclerview.adapter = TodolistAdapter(this, getItemsList(container))
+>>>>>>> master
         return binding.root
 
     }
@@ -55,20 +53,40 @@ class HomeFragment : Fragment(R.layout.fragment_newlist) {
         binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_HomeFragment_to_NewlistFragment)
         }
+        binding.textviewDate.text = getDate()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+<<<<<<< HEAD
     private fun initView(){
        // binding.textField
       //  binding.rewardField
+=======
+>>>>>>> master
 
-    }
+    private fun getItemsList(container: ViewGroup
+    ?): ArrayList<TodolistsModelDB>{
+        val containerContext = container?.context
+        val sqliteHelper: SQLiteHelper = SQLiteHelper(containerContext!!)
+        val empList: ArrayList<TodolistsModelDB> = sqliteHelper.getAllList()
 
+<<<<<<< HEAD
     private fun initRecyclerView(){
       //  binding.recyclerview.layoutManager = LinearLayoutManager(containerContext!!)
+=======
+        return empList
+>>>>>>> master
     }
+//    private fun initView(){
+//        binding.textField
+//        binding.rewardField
+//    }
+
+//    private fun initRecyclerView(){
+//        binding.recyclerview.layoutManager = LinearLayoutManager(containerContext!!)
+//    }
 
 }

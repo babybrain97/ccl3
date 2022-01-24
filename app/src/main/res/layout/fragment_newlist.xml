@@ -19,36 +19,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textview_date_start"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:hint="17 Jan 2022">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textview_date_end"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:hint="18 Jan 2022">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="date" />
+            android:id="@+id/list_title"
+            android:text=""/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,8 +34,30 @@
         android:hint="Reward">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/reward_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text=""/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:startIconDrawable="@drawable/ic_baseline_calendar_today_24"
+        android:hint="time frame">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textview_timeframe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:text="date" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -108,7 +103,7 @@
                     android:textColor="@color/material_on_background_emphasis_medium" />
 
                 <Button
-                    android:id="@+id/change_intention"
+                    android:id="@+id/change_intention_btn"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

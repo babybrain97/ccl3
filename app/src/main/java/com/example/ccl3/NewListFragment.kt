@@ -1,57 +1,48 @@
 package com.example.ccl3
 
-
 import android.os.Bundle
 import android.text.Editable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.ccl3.databinding.FragmentNewlistBinding
+import com.google.android.material.datepicker.MaterialDatePicker
+import java.sql.Date
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 class NewListFragment : Fragment(R.layout.fragment_newlist) {
 
-    private lateinit var name: EditText
-    private lateinit var reward: EditText
-
-
     private lateinit var sqliteHelper: SQLiteHelper
-
     private lateinit var binding: FragmentNewlistBinding
 
-
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = FragmentNewlistBinding.inflate(inflater, container, false)
         val containerContext = container?.context
         initView()
         sqliteHelper = SQLiteHelper(containerContext!!)
-
         return binding.root
     }
 
 
     private fun saveList(){
-           val name = binding.textField.editText.toString()
-           val reward = binding.rewardField.editText.toString()
+        val name = binding.listTitle.text.toString()
+        val reward = binding.rewardText.text.toString()
 
         if (name.isEmpty() || reward.isEmpty()) {
 
             Toast.makeText(context, "Please enter ", Toast.LENGTH_SHORT).show()
 
         }else{
-            val std = ListModelDb(name = name, reward = reward)
+            val std = TodolistsModelDB(name = name, reward = reward)
             val status = sqliteHelper.insertList(std)
 
             //Check insert success or not success
@@ -83,9 +74,49 @@ class NewListFragment : Fragment(R.layout.fragment_newlist) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.saveListButton.setOnClickListener {
+            findNavController().navigate(R.id.action_NewlistFragment_to_HomeFragment)
+            }
+        binding.textviewTimeframe.text = "${getDate()}".toEditable()
+        binding.textviewTimeframe.setOnClickListener{
+            showDateRangePicker()
+        }
+        binding.changeIntentionBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_NewlistFragment_to_SetIntentionFragment)
+        }
+
+    }
+
+    private fun showDateRangePicker() {
+
+        val dateRangePicker = MaterialDatePicker.Builder.dateRangePicker()
+            .setTheme(R.style.ThemeOverlay_MaterialComponents_MaterialCalendar)
+            .setTitleText("Select dates")
+            .build()
+
+        dateRangePicker.show( childFragmentManager, "tag")
+
+        dateRangePicker.addOnPositiveButtonClickListener { dateSelected ->
+
+            val startDate = dateSelected.first
+            val endDate = dateSelected.second
+
+            if (startDate != null && endDate != null) {
+                binding.textviewTimeframe.text = "${convertLongToTime(startDate)} - ${convertLongToTime(endDate)}".toEditable()
+            }
 
         binding.saveListButton.setOnClickListener { saveList() }
         }
+    }
+
+
+    private fun convertLongToTime(time: Long): String {
+        val date = Date(time)
+        val format = SimpleDateFormat(
+            "dd MMM yyyy",
+            Locale.getDefault())
+        return format.format(date)
+    }
 
     fun String.toEditable(): Editable =  Editable.Factory.getInstance().newEditable(this.toString())
 }

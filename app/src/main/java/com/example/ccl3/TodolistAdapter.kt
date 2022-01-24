@@ -6,10 +6,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ccl3.databinding.TodolistItemViewBinding
 
 
-//class TodolistAdapter(private val List: List<TodolistItem>) : RecyclerView.Adapter<TodolistAdapter.ViewHolder>() {
-class TodolistAdapter: RecyclerView.Adapter<TodolistAdapter.ViewHolder>() {
+class TodolistAdapter(val context: HomeFragment, val items: List<TodolistsModelDB>) : RecyclerView.Adapter<TodolistAdapter.ViewHolder>() {
+//class TodolistAdapter: RecyclerView.Adapter<TodolistAdapter.ViewHolder>() {
 
-    val tasks= arrayOf("Today's Tasks", "Weekly To Do", "App Design")
+//    private var listsList: Array<TodolistItem> = ArrayList()
+
+//    fun addItems(items:Array<TodolistItem>) {
+//        this.listsList = items
+//    }
+//    val tasks= arrayOf("Today's Tasks", "Weekly To Do", "App Design")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = TodolistItemViewBinding
@@ -20,9 +25,14 @@ class TodolistAdapter: RecyclerView.Adapter<TodolistAdapter.ViewHolder>() {
 
 
 override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    holder.binding.toDoListItemText.text = tasks [position]
+
+    val item = items.get(position)
+    holder.binding.toDoListItemText.text = item.name
+
+//    holder.binding.toDoListItemText.text = listsList[position].toString()
+//    holder.binding.toDoListItemText.text = tasks [position]
 //            with(holder){
-//                with(List[position]) {
+//                with(listsList[position]) {
 //                    binding.toDoListItemText
 //                }
 //            }
@@ -30,8 +40,9 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
     // return the number of the items in the list
     override fun getItemCount(): Int {
-//        return List.size
-        return tasks.size
+        return items.size
+//        return listsList.size
+//        return tasks.size
     }
 
     // Holds the views for adding it to image and text
