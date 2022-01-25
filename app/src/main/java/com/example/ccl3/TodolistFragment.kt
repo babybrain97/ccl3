@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.ccl3.databinding.FragmentTodolistBinding
@@ -14,9 +15,6 @@ class TodolistFragment : Fragment() {
 
 
     private var _binding: FragmentTodolistBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     private var progress = 0
@@ -58,17 +56,23 @@ class TodolistFragment : Fragment() {
         }.attach()
 
         return binding.root
-
     }
 
     val args: TodolistFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+//        val controller = Navigation.findNavController(view)
+//        controller.popBackStack(R.id.)
         val title = args.title
         binding.textviewListName.text = title
+//
+
+
         binding.fab.setOnClickListener{
-            findNavController().navigate(R.id.action_TodolistFragment_to_NewTaskFragment)
+            val action = TodolistFragmentDirections.actionTodolistFragmentToNewTaskFragment(title)
+            findNavController().navigate(action)
+//            findNavController().navigate(R.id.action_TodolistFragment_to_NewTaskFragment)
         }
 
     }
