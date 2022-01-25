@@ -14,35 +14,36 @@ import com.example.ccl3.databinding.FragmentNewTaskBinding
 import com.example.ccl3.databinding.FragmentNewlistBinding
 
 
-class NewTaskFragment : Fragment() {
-    private var _binding: FragmentNewTaskBinding? = null
-    private val binding get() = _binding!!
+class NewTaskFragment : Fragment(R.layout.fragment_new_task) {
+//    private var _binding: FragmentNewTaskBinding? = null
+//    private val binding get() = _binding!!
 
     private lateinit var sqlitetaskHelper: SQLiteTaskHelper
+    private lateinit var binding: FragmentNewTaskBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentNewTaskBinding.inflate(inflater, container, false)
+        binding = FragmentNewTaskBinding.inflate(inflater, container, false)
         sqlitetaskHelper = SQLiteTaskHelper(requireContext())
         return binding.root
     }
 
-    val args: NewTaskFragmentArgs by navArgs()
+//    val args: NewTaskFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         super.onViewCreated(view, savedInstanceState)
-        val title = args.title
+//        val title = args.title
 //
 //        val action = NewTaskFragmentDirections.actionNewTaskFragmentToTodolistFragment(title)
 //        findNavController().navigate(action)
 
         binding.saveTaskButton.setOnClickListener{
-                saveTask()
-            findNavController().navigate(R.id.action_NewTaskFragment_to_TodolistFragment)
+            saveTask()
+            findNavController().navigateUp()
+//            findNavController().navigate(R.id.action_NewTaskFragment_to_TodolistFragment)
 //            findNavController().navigate(R.id.action_NewTaskFragment_to_TodolistFragment)
 //            val action = NewTaskFragmentDirections.actionNewTaskFragmentToTodolistFragment(title)
 //            findNavController().navigate(action)
@@ -74,6 +75,7 @@ class NewTaskFragment : Fragment() {
 
         val stdList = sqlitetaskHelper.getAllTask()
         Log.e("pppp", "${stdList.size}")
+        sqlitetaskHelper.close()
     }
 
     private fun clearEditText(){
@@ -86,8 +88,8 @@ class NewTaskFragment : Fragment() {
     fun String.toEditable(): Editable =  Editable.Factory.getInstance().newEditable(this.toString())
 
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+//    override fun onDestroyView() {
+//        super.onDestroyView()
+//        _binding = null
+//    }
 }

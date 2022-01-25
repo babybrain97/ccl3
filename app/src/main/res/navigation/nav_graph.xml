@@ -66,10 +66,10 @@
         android:label="Add Task"
         tools:layout="@layout/fragment_new_task">
 
-        <argument
-            android:name="title"
-            app:argType="string"
-            android:defaultValue="title" />
+<!--        <argument-->
+<!--            android:name="title"-->
+<!--            app:argType="string"-->
+<!--            android:defaultValue="title" />-->
         <action
             android:id="@+id/action_NewTaskFragment_to_TodolistFragment"
             app:destination="@id/TodolistFragment" />

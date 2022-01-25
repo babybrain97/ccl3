@@ -46,7 +46,7 @@ class TodolistFragment : Fragment() {
 
 
         //Tab Layout
-        binding.viewPager2.adapter = ViewTabAdapter(parentFragmentManager,lifecycle)
+        binding.viewPager2.adapter = ViewTabAdapter(childFragmentManager,lifecycle)
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager2){tab,position ->
             when(position){
@@ -70,9 +70,9 @@ class TodolistFragment : Fragment() {
 
 
         binding.fab.setOnClickListener{
-            val action = TodolistFragmentDirections.actionTodolistFragmentToNewTaskFragment(title)
-            findNavController().navigate(action)
-//            findNavController().navigate(R.id.action_TodolistFragment_to_NewTaskFragment)
+//            val action = TodolistFragmentDirections.actionTodolistFragmentToNewTaskFragment(title)
+//            findNavController().navigate(action)
+            findNavController().navigate(R.id.action_TodolistFragment_to_NewTaskFragment)
         }
 
     }

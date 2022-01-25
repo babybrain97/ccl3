@@ -15,7 +15,6 @@ import java.sql.Date
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class NewListFragment : Fragment(R.layout.fragment_newlist) {
 
     private lateinit var sqliteHelper: SQLiteHelper
@@ -68,7 +67,6 @@ class NewListFragment : Fragment(R.layout.fragment_newlist) {
     private fun initView(){
         binding.textField
         binding.rewardField
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
