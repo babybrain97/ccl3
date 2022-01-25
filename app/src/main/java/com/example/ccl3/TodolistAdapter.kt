@@ -41,4 +41,3 @@ class TodolistAdapter(
     inner class ViewHolder(val binding: TodolistItemViewBinding) :
         RecyclerView.ViewHolder(binding.root)
 }
-

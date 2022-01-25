@@ -27,6 +27,10 @@ class TodolistFragment : Fragment() {
 
         _binding = FragmentTodolistBinding.inflate(inflater, container, false)
 
+        //Task Items
+       // binding.re = TaskAdapter(this, getItemTask(container))
+
+        //Tab Layout
         binding.viewPager2.adapter = ViewTabAdapter(parentFragmentManager,lifecycle)
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager2){tab,position ->
@@ -55,4 +59,13 @@ class TodolistFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    private fun getItemTask(container: ViewGroup ?): ArrayList<TasksModelDB> {
+        val containerContext = container?.context
+        val sqliteTaskHelper: SQLiteTaskHelper = SQLiteTaskHelper(containerContext!!)
+        val empTask: ArrayList<TasksModelDB> = sqliteTaskHelper.getAllTask()
+
+        return empTask
+    }
+
 }
