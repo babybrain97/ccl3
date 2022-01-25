@@ -19,6 +19,7 @@ class TodolistFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private var progress = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,8 +28,24 @@ class TodolistFragment : Fragment() {
 
         _binding = FragmentTodolistBinding.inflate(inflater, container, false)
 
-        //Task Items
-       // binding.re = TaskAdapter(this, getItemTask(container))
+
+        binding.boxCheck.setOnClickListener {v ->
+            if (binding.boxCheck.isChecked){
+                progress +=10
+                updateProgressBar()
+            }else{
+                progress -=10
+                updateProgressBar()
+            }
+
+        }
+
+       /** binding.boxCheck.setOnClickListener {v ->
+            for (i in 0 < progress.length)
+        } */
+
+
+
 
         //Tab Layout
         binding.viewPager2.adapter = ViewTabAdapter(parentFragmentManager,lifecycle)
@@ -53,6 +70,7 @@ class TodolistFragment : Fragment() {
         binding.fab.setOnClickListener{
             findNavController().navigate(R.id.action_TodolistFragment_to_NewTaskFragment)
         }
+
     }
 
     override fun onDestroyView() {
@@ -60,12 +78,7 @@ class TodolistFragment : Fragment() {
         _binding = null
     }
 
-    private fun getItemTask(container: ViewGroup ?): ArrayList<TasksModelDB> {
-        val containerContext = container?.context
-        val sqliteTaskHelper: SQLiteTaskHelper = SQLiteTaskHelper(containerContext!!)
-        val empTask: ArrayList<TasksModelDB> = sqliteTaskHelper.getAllTask()
-
-        return empTask
+    private fun updateProgressBar(){
+        binding.progressBar.setProgress(progress)
     }
-
 }

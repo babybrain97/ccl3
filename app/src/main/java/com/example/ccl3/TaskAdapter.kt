@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ccl3.databinding.TaskItemViewBinding
 
 
-class TaskAdapter (val items: List<TasksModelDB>) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
+class TaskAdapter(val items: List<TasksModelDB>) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = TaskItemViewBinding
             .inflate(LayoutInflater.from(parent.context), parent,false)

@@ -16,7 +16,7 @@
         <LinearLayout
             android:id="@+id/header"
             android:layout_width="409dp"
-            android:layout_height="97dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:orientation="vertical"
             android:paddingLeft="16dp"
@@ -40,6 +40,25 @@
                 android:layout_height="wrap_content"
                 android:text="@string/list_heading"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminateOnly="false"
+                android:paddingTop="50dp"
+                android:progress="60"
+                tools:progress="60"/>
+
+            <CheckBox
+                android:id="@+id/boxCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="check for progress"/>
+
+
         </LinearLayout>
 
 
