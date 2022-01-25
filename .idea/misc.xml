@@ -6,13 +6,15 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.29347826086956524" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.29347826086956524" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.2570621468926554" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.14444444444444443" />
+        <entry key="app/src/main/res/layout/fragment_list_tasks.xml" value="0.2520833333333333" />
         <entry key="app/src/main/res/layout/fragment_new_task.xml" value="0.2914903102150198" />
         <entry key="app/src/main/res/layout/fragment_newlist.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.29347826086956524" />
         <entry key="app/src/main/res/layout/fragment_set_intention.xml" value="0.25052083333333336" />
-        <entry key="app/src/main/res/layout/fragment_tab_insight.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/fragment_tab_insight.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_tab_task.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_task_adapter.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_todolist.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_view_tab.xml" value="0.1140625" />
         <entry key="app/src/main/res/layout/list_item_view.xml" value="0.27760416666666665" />

@@ -10,9 +10,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.ccl3.databinding.FragmentTodolistBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
+private lateinit var sqliteTaskHelper: SQLiteTaskHelper
+
 class TodolistFragment : Fragment() {
 
     private var _binding: FragmentTodolistBinding? = null
@@ -28,6 +27,10 @@ class TodolistFragment : Fragment() {
 
         _binding = FragmentTodolistBinding.inflate(inflater, container, false)
 
+        //Task Items
+       // binding.re = TaskAdapter(this, getItemTask(container))
+
+        //Tab Layout
         binding.viewPager2.adapter = ViewTabAdapter(parentFragmentManager,lifecycle)
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager2){tab,position ->
@@ -54,4 +57,13 @@ class TodolistFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    private fun getItemTask(container: ViewGroup ?): ArrayList<TasksModelDB> {
+        val containerContext = container?.context
+        val sqliteTaskHelper: SQLiteTaskHelper = SQLiteTaskHelper(containerContext!!)
+        val empTask: ArrayList<TasksModelDB> = sqliteTaskHelper.getAllTask()
+
+        return empTask
+    }
+
 }

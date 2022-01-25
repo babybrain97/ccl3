@@ -14,7 +14,8 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toStartOf="@+id/check_item_box"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingBottom="20dp">
 
         <TextView
             android:id="@+id/task_text"

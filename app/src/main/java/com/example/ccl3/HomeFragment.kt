@@ -15,9 +15,6 @@ private lateinit var sqLiteHelper: SQLiteHelper
 
 class HomeFragment : Fragment() {
 
-    private lateinit var name: EditText
-    private lateinit var reward: EditText
-
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
@@ -49,21 +46,12 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    private fun getItemsList(container: ViewGroup
-    ?): ArrayList<TodolistsModelDB>{
+    private fun getItemsList(container: ViewGroup ?): ArrayList<TodolistsModelDB>{
         val containerContext = container?.context
         val sqliteHelper: SQLiteHelper = SQLiteHelper(containerContext!!)
         val empList: ArrayList<TodolistsModelDB> = sqliteHelper.getAllList()
 
         return empList
     }
-//    private fun initView(){
-//        binding.textField
-//        binding.rewardField
-//    }
-
-//    private fun initRecyclerView(){
-//        binding.recyclerview.layoutManager = LinearLayoutManager(containerContext!!)
-//    }
 
 }
