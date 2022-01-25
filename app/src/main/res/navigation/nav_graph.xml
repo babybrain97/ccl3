@@ -15,7 +15,6 @@
             android:id="@+id/action_HomeFragment_to_TodolistFragment"
             app:destination="@id/TodolistFragment">
         </action>
-
         <action
             android:id="@+id/action_HomeFragment_to_NewlistFragment"
             app:destination="@id/NewlistFragment" />
@@ -29,7 +28,7 @@
         <argument
             android:name="title"
             app:argType="string"
-            android:defaultValue="Title" />
+            android:defaultValue="title" />
         <action
             android:id="@+id/action_TodolistFragment_to_HomeFragment"
             app:destination="@id/HomeFragment" />
@@ -64,9 +63,13 @@
     <fragment
         android:id="@+id/NewTaskFragment"
         android:name="com.example.ccl3.NewTaskFragment"
-        android:label="Set Intention"
+        android:label="Add Task"
         tools:layout="@layout/fragment_new_task">
 
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue="title" />
         <action
             android:id="@+id/action_NewTaskFragment_to_TodolistFragment"
             app:destination="@id/TodolistFragment" />
