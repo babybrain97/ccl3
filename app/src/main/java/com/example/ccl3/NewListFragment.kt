@@ -94,7 +94,7 @@ class NewListFragment : Fragment(R.layout.fragment_newlist) {
             .setTitleText("Select dates")
             .build()
 
-        dateRangePicker.show( childFragmentManager, "tag")
+        dateRangePicker.show( parentFragmentManager, "timeframe")
 
         dateRangePicker.addOnPositiveButtonClickListener { dateSelected ->
 
