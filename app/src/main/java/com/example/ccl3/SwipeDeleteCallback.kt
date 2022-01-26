@@ -5,15 +5,11 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 //import android.R
 import android.content.Context
-
 import androidx.core.content.ContextCompat
-
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
 
-
-
-abstract class SwipeDeleteCallback(context : Context): ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT) {
+abstract class SwipeDeleteCallback(context: Context): ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT) {
 
     val deleteColor = ContextCompat.getColor(context, R.color.deletecolor)
     val deleteIcon = R.drawable.ic_baseline_delete_24
