@@ -1,6 +1,7 @@
 package com.example.ccl3
 
 import android.os.Bundle
+import android.util.Property
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ccl3.databinding.TaskItemViewBinding
 
 
-class TaskAdapter(val items: List<TasksModelDB>) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
+class TaskAdapter(val items: ArrayList<TasksModelDB>) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
+
+    fun deleteItem(index: Int){
+        items.removeAt(index)
+        notifyDataSetChanged()
+    }
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = TaskItemViewBinding
             .inflate(LayoutInflater.from(parent.context), parent,false)
@@ -27,6 +35,8 @@ class TaskAdapter(val items: List<TasksModelDB>) : RecyclerView.Adapter<TaskAdap
     override fun getItemCount(): Int {
         return items.size
     }
+
+
 
     // Holds the views for adding it to image and text
     inner class ViewHolder(val binding: TaskItemViewBinding) :RecyclerView.ViewHolder(binding.root)

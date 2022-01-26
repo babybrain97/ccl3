@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.ccl3.databinding.FragmentTabTaskBinding
 
 
@@ -40,14 +42,15 @@ class TabTaskFragment : Fragment() {
 
         val taskListAdapter = TaskAdapter(taskList)
         binding.recyclerviewTasks.adapter = taskListAdapter
+
+        val swipeDelete = object : SwipeDeleteCallback(){
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                taskListAdapter.deleteItem(viewHolder.absoluteAdapterPosition)
+            }
+        }
+        val touchHelper = ItemTouchHelper(swipeDelete)
+        touchHelper.attachToRecyclerView(binding.recyclerviewTasks)
+
         return taskList
     }
-
-//    private fun getItemTask(container: ViewGroup ?): ArrayList<TasksModelDB> {
-//        val containerContext = container?.context
-//        val sqliteTaskHelper: SQLiteTaskHelper = SQLiteTaskHelper(containerContext!!)
-//        val empTask: ArrayList<TasksModelDB> = sqliteTaskHelper.getAllTask()
-//
-//        return empTask
-//    }
 }
