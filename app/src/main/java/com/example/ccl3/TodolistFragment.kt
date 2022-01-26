@@ -38,9 +38,11 @@ class TodolistFragment : Fragment() {
 
         }
 
-       /** binding.boxCheck.setOnClickListener {v ->
+      /** binding.boxCheck.setOnClickListener {v ->
             for (i in 0 < progress.length)
         } */
+
+
 
 
 
