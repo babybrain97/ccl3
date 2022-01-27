@@ -39,6 +39,11 @@ class TodolistFragment : Fragment() {
 
         }
 
+      /** binding.boxCheck.setOnClickListener {v ->
+            for (i in 0 < progress.length)
+        } */
+
+
 
         val fragment = TabTaskFragment.newInstance(args.id)
         val fragment2 = TabTaskFragment.newInstance(args.id)

@@ -1,11 +1,13 @@
 package com.example.ccl3
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.ccl3.databinding.FragmentTabTaskBinding
 
 
@@ -30,6 +32,9 @@ class TabTaskFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         _binding = FragmentTabTaskBinding.inflate(inflater, container, false)
+
+//        binding.recyclerviewTasks.adapter = TaskAdapter(items = )
+        // Inflate the layout for this fragment
        return binding.root
     }
 
@@ -47,6 +52,15 @@ class TabTaskFragment : Fragment() {
         val taskListAdapter = TaskAdapter(taskList)
 
         binding.recyclerviewTasks.adapter = taskListAdapter
+
+        val swipeDelete = object : SwipeDeleteCallback(requireContext()){
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                taskListAdapter.deleteItem(viewHolder.absoluteAdapterPosition)
+            }
+        }
+        val touchHelper = ItemTouchHelper(swipeDelete)
+        touchHelper.attachToRecyclerView(binding.recyclerviewTasks)
+
         return taskList
     }
 }
