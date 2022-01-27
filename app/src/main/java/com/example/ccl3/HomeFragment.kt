@@ -62,24 +62,4 @@ class HomeFragment : Fragment() {
         )
         findNavController().navigate(action)
     }
-
-//    companion object Factory {
-//
-//    }
-
-//    fun openDetail(){
-//        val fragment = Todolist
-//        supportFragmentManager.beginTransaction()
-//            .add(R.id.container, )
-//    }
-
-//    private fun initView(){
-//        binding.textField
-//        binding.rewardField
-//    }
-
-//    private fun initRecyclerView(){
-//        binding.recyclerview.layoutManager = LinearLayoutManager(containerContext!!)
-//    }
-
 }
