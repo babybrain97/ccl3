@@ -57,11 +57,21 @@ class TabTaskFragment : Fragment() {
         val swipeDelete = object : SwipeDeleteCallback(requireContext()){
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 taskListAdapter.deleteItem(viewHolder.absoluteAdapterPosition)
+                deleteTask((viewHolder as TaskAdapter.ViewHolder).getID())
             }
         }
         val touchHelper = ItemTouchHelper(swipeDelete)
         touchHelper.attachToRecyclerView(binding.recyclerviewTasks)
 
+        return taskList
+    }
+
+    private fun deleteTask(id : Int): ArrayList<TasksModelDB>{
+        val db: SQLiteTaskHelper = SQLiteTaskHelper(requireContext())
+        val taskList: ArrayList<TasksModelDB> = db.getAllTask()
+
+        db.deleteTaskByID(id)
+        db.getAllTask()
         return taskList
     }
 }

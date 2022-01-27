@@ -133,4 +133,15 @@ class SQLiteTaskHelper(context: Context) :
          }
          return listTasks
      }
+
+    fun deleteTaskByID(id: Int): Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(ID, id)
+
+        val success = db.delete(TBL_TASK, "id=$id", null)
+        db.close()
+        return success
+
+    }
 }

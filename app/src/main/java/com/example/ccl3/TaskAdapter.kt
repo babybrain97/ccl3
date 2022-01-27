@@ -26,8 +26,7 @@ class TaskAdapter(val items: ArrayList<TasksModelDB>) : RecyclerView.Adapter<Tas
     override fun onBindViewHolder(holder: TaskAdapter.ViewHolder, position: Int) {
 
         val item = items.get(position)
-        holder.binding.taskText.text = item.nameTask
-        holder.binding.taskDescriptionText.text = item.description
+        holder.setItem(item)
 
     }
 
@@ -36,10 +35,19 @@ class TaskAdapter(val items: ArrayList<TasksModelDB>) : RecyclerView.Adapter<Tas
         return items.size
     }
 
-
-
     // Holds the views for adding it to image and text
-    inner class ViewHolder(val binding: TaskItemViewBinding) :RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(val binding: TaskItemViewBinding) :RecyclerView.ViewHolder(binding.root){
+        private lateinit var item : TasksModelDB
 
+        fun setItem(item : TasksModelDB){
+            this.item = item
+            binding.taskText.text = item.nameTask
+            binding.taskDescriptionText.text = item.description
+        }
+
+        fun getID(): Int {
+            return item.id
+        }
+    }
 
 }
