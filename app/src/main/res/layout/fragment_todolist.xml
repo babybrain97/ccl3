@@ -11,7 +11,11 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/header"
@@ -43,36 +47,46 @@
 
 
             <ProgressBar
-                style="@android:style/Widget.ProgressBar.Horizontal"
                 android:id="@+id/progressBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:indeterminateOnly="false"
                 android:paddingTop="50dp"
                 android:progress="60"
-                tools:progress="60"/>
+                tools:progress="60" />
 
             <CheckBox
                 android:id="@+id/boxCheck"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="check for progress"/>
-
+                android:text="check for progress" />
 
         </LinearLayout>
-
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:tabMode="fixed"/>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
 
+        <!--        <androidx.viewpager2.widget.ViewPager2-->
+        <!--            android:id="@+id/view_pager2"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content" >-->
+
+        <!--            <com.google.android.material.tabs.TabLayout-->
+        <!--                android:id="@+id/tab_layout"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content" />-->
+
+        <!--        </androidx.viewpager2.widget.ViewPager2>-->
 
     </LinearLayout>
 

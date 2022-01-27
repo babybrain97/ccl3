@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.navigation.navGraphViewModels
 import com.example.ccl3.databinding.FragmentTodolistBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -38,15 +39,13 @@ class TodolistFragment : Fragment() {
 
         }
 
-       /** binding.boxCheck.setOnClickListener {v ->
-            for (i in 0 < progress.length)
-        } */
 
+        val fragment = TabTaskFragment.newInstance(args.id)
+        val fragment2 = TabTaskFragment.newInstance(args.id)
 
-
-
+        val fragments = listOf(fragment, fragment2)
         //Tab Layout
-        binding.viewPager2.adapter = ViewTabAdapter(childFragmentManager,lifecycle)
+        binding.viewPager2.adapter = ViewTabAdapter(childFragmentManager,lifecycle, fragments)
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager2){tab,position ->
             when(position){
@@ -62,17 +61,26 @@ class TodolistFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        val controller = Navigation.findNavController(view)
-//        controller.popBackStack(R.id.)
         val title = args.title
         binding.textviewListName.text = title
+//        val action = TodolistFragmentDirections(
+//            title,
+//            id
+//        )
+//        findNavController().navigate(action)
+
 //
 
-
+        val arg: TodolistFragmentArgs by navArgs()
         binding.fab.setOnClickListener{
-//            val action = TodolistFragmentDirections.actionTodolistFragmentToNewTaskFragment(title)
-//            findNavController().navigate(action)
-            findNavController().navigate(R.id.action_TodolistFragment_to_NewTaskFragment)
+
+            val id = args.id
+            val action = TodolistFragmentDirections.actionTodolistFragmentToNewTaskFragment(
+                id
+            )
+            findNavController().navigate(action)
+
+//            findNavController().navigate(R.id.action_TodolistFragment_to_NewTaskFragment)
         }
 
     }

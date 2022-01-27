@@ -6,7 +6,8 @@ class TasksModelDB(
     val id: Int = getAutoId(),
     val nameTask: String,
     val description: String,
-//    val listTitle: String
+    val listId: Int,
+    val done: Boolean
 ) {
 companion object {
     fun getAutoId(): Int {

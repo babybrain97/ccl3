@@ -13,29 +13,10 @@
 
         <action
             android:id="@+id/action_HomeFragment_to_TodolistFragment"
-            app:destination="@id/TodolistFragment">
-        </action>
+            app:destination="@id/TodolistFragment"></action>
         <action
             android:id="@+id/action_HomeFragment_to_NewlistFragment"
             app:destination="@id/NewlistFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/TodolistFragment"
-        android:name="com.example.ccl3.TodolistFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_todolist">
-
-        <argument
-            android:name="title"
-            app:argType="string"
-            android:defaultValue="title" />
-        <action
-            android:id="@+id/action_TodolistFragment_to_HomeFragment"
-            app:destination="@id/HomeFragment" />
-        <action
-            android:id="@+id/action_TodolistFragment_to_NewTaskFragment"
-            app:destination="@id/NewTaskFragment" />
-
     </fragment>
     <fragment
         android:id="@+id/NewlistFragment"
@@ -60,19 +41,76 @@
             android:id="@+id/action_SetIntentionFragment_to_NewListFragment"
             app:destination="@id/NewlistFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/ViewTabAdapter"
+        android:name="com.example.ccl3.ViewTabAdapter"></fragment>
+
+    <argument
+        android:name="title"
+        android:defaultValue="title"
+        app:argType="string" />
+
+    <argument
+        android:name="id"
+        android:defaultValue="0"
+        app:argType="integer" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/NewTaskFragment"-->
+<!--        android:name="com.example.ccl3.NewTaskFragment"-->
+<!--        android:label="Add Task"-->
+<!--        tools:layout="@layout/fragment_new_task" />-->
+
+    <fragment
+        android:id="@+id/TodolistFragment"
+        android:name="com.example.ccl3.TodolistFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_todolist">
+
+        <argument
+            android:name="title"
+            android:defaultValue="title"
+            app:argType="string" />
+
+        <argument
+            android:name="id"
+            android:defaultValue="0"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_TodolistFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+        <action
+            android:id="@+id/action_TodolistFragment_to_NewTaskFragment"
+            app:destination="@id/NewTaskFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/NewTaskFragment"
         android:name="com.example.ccl3.NewTaskFragment"
         android:label="Add Task"
         tools:layout="@layout/fragment_new_task">
 
+        <argument
+            android:name="listId"
+            app:argType="integer"
+            android:defaultValue="0" />
 <!--        <argument-->
-<!--            android:name="title"-->
-<!--            app:argType="string"-->
-<!--            android:defaultValue="title" />-->
+<!--            app:argType="integer"-->
+<!--            android:name="id"-->
+<!--            android:defaultValue="0" />-->
         <action
             android:id="@+id/action_NewTaskFragment_to_TodolistFragment"
             app:destination="@id/TodolistFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/TabTaskFragment"
+        android:name="com.example.ccl3.TabTaskFragment"
+        tools:layout="@layout/fragment_tab_task"></fragment>
+
+
+
 
 </navigation>

@@ -29,9 +29,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_HomeFragment_to_TodolistFragment)
-        }
         binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_HomeFragment_to_NewlistFragment)
         }
@@ -58,7 +55,11 @@ class HomeFragment : Fragment() {
             .show()
 
         val title = item.name
-        val action = HomeFragmentDirections.actionHomeFragmentToTodolistFragment(title)
+        val id = item.id
+        val action = HomeFragmentDirections.actionHomeFragmentToTodolistFragment(
+            title,
+            id
+        )
         findNavController().navigate(action)
     }
 
